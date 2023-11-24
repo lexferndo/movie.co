@@ -28,20 +28,18 @@ const ListCard = ({ anime }) => {
             index ===
             self.findIndex(
               (result) =>
-                result.entry[1].title.length <= 25 &&
-                result.entry[1].mal_id === value.entry[1].mal_id
+                result.title.length <= 25 && result.mal_id === value.mal_id
             )
           );
         })
         .slice(0, limitAnime)
         .map((value) => {
-          const result = value.entry[1];
           return (
             <Card
-              key={result.mal_id}
-              id={result.mal_id}
-              image={result.images.webp.image_url}
-              title={result.title}
+              key={value.mal_id}
+              id={value.mal_id}
+              image={value.images.webp.image_url}
+              title={value.title}
             />
           );
         })}
