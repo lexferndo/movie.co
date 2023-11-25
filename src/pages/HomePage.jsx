@@ -21,7 +21,7 @@ const HomePage = () => {
             Now Playing
           </h1>
           <Link to={"/nowplaying"} className="text-base font-light">
-            More
+            View All
           </Link>
         </div>
         <div>
@@ -29,16 +29,28 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="container mx-auto p-5">
-        <h1 className="text-2xl text-primary font-medium">Popular</h1>
-        <div className="py-10">
+      <section className="container mx-auto p-10">
+        <div className="pb-5 flex items-center">
+          <h1 className="flex-1 text-2xl text-primary font-medium">Popular</h1>
+          <Link to={"/nowplaying"} className="text-base font-light">
+            View All
+          </Link>
+        </div>
+        <div>
           <ListCard movie={popularMovie} />
         </div>
       </section>
 
       <section className="container mx-auto p-5">
-        <h1 className="text-2xl text-primary font-medium">Top Rated</h1>
-        <div className="py-10">
+        <div className="pb-5 flex items-center">
+          <h1 className="flex-1 text-2xl text-primary font-medium">
+            Top Rated
+          </h1>
+          <Link to={"/nowplaying"} className="text-base font-light">
+            View All
+          </Link>
+        </div>
+        <div>
           <ListCard movie={topRatedMovie} />
         </div>
       </section>

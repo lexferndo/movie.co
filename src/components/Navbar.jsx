@@ -27,9 +27,9 @@ const Navbar = () => {
       className={`fixed flex w-full bg-black z-40 ${
         navbarOpacity ? "bg-opacity-100" : "bg-opacity-50"
       } transition-all duration-500 ease-in`}>
-      <div className="container mx-auto p-5 flex items-center sm:gap-x-[10vw] sm:px-0 lg:px-5">
+      <div className="container mx-auto p-5 flex items-center sm:gap-x-[11vw] sm:px-0 lg:px-5">
         <a href="/" className="text-2xl font-medium text-primary flex-1 ">
-          Anime.co
+          Movie.co
         </a>
         <button
           className="bg-transparent text-3xl text-white text-center sm:hidden"
