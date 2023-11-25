@@ -2,16 +2,18 @@ import PropTypes from "prop-types";
 import Card from "./Card";
 import { useEffect, useState } from "react";
 
-const ListCard = ({ anime }) => {
-  const [limitAnime, setLimitAnime] = useState(0);
+const imageUrl = import.meta.env.VITE_API_IMAGEURL;
+
+const ListCard = ({ movie }) => {
+  const [limitMovie, setLimitMovie] = useState(0);
 
   const changeLimit = () => {
     if (window.innerWidth <= 500) {
-      setLimitAnime(6);
+      setLimitMovie(6);
     } else if (window.innerWidth <= 1000) {
-      setLimitAnime(8);
+      setLimitMovie(8);
     } else {
-      setLimitAnime(14);
+      setLimitMovie(14);
     }
   };
 
@@ -22,33 +24,22 @@ const ListCard = ({ anime }) => {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
-      {anime
-        .filter((value, index, self) => {
-          return (
-            index ===
-            self.findIndex(
-              (result) =>
-                result.title.length <= 25 && result.mal_id === value.mal_id
-            )
-          );
-        })
-        .slice(0, limitAnime)
-        .map((value) => {
-          return (
-            <Card
-              key={value.mal_id}
-              id={value.mal_id}
-              image={value.images.webp.image_url}
-              title={value.title}
-            />
-          );
-        })}
+      {movie.slice(0, limitMovie).map((value) => {
+        return (
+          <Card
+            key={value.id}
+            id={value.id}
+            image={`${imageUrl}${value.poster_path}`}
+            title={value.title}
+          />
+        );
+      })}
     </div>
   );
 };
 
 ListCard.propTypes = {
-  anime: PropTypes.array.isRequired,
+  movie: PropTypes.array.isRequired,
 };
 
 export default ListCard;

@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 
 import "./index.css";
-import AnimeContextProvider from "./context/AnimeContext.jsx";
+import MovieContextProvider from "./context/MovieContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AnimeContextProvider>
+    <MovieContextProvider>
       <App />
-    </AnimeContextProvider>
+    </MovieContextProvider>
   </React.StrictMode>
 );

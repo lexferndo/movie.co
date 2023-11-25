@@ -10,7 +10,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useRef, useState } from "react";
 
-const SliderCard = ({ anime }) => {
+const imageUrl = import.meta.env.VITE_API_IMAGEURL;
+
+const SliderCard = ({ movie }) => {
   const [slideBegOrNot, handleSlideByState] = useState({
     isFirst: true,
     isLast: false,
@@ -51,24 +53,17 @@ const SliderCard = ({ anime }) => {
             slidesPerView: 7,
           },
         }}>
-        {anime
-          .filter((value, index, self) => {
-            return (
-              index ===
-              self.findIndex((result) => result.mal_id === value.mal_id)
-            );
-          })
-          .map((value) => {
-            return (
-              <SwiperSlide key={value.mal_id}>
-                <Card
-                  id={value.mal_id}
-                  image={value.images.webp.image_url}
-                  title={value.title}
-                />
-              </SwiperSlide>
-            );
-          })}
+        {movie.map((value) => {
+          return (
+            <SwiperSlide key={value.id}>
+              <Card
+                id={value.id}
+                image={`${imageUrl}${value.poster_path}`}
+                title={value.title}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
 
       <div className="hidden lg:flex lg:justify-end lg:items-center lg:gap-x-5">
@@ -93,7 +88,7 @@ const SliderCard = ({ anime }) => {
 };
 
 SliderCard.propTypes = {
-  anime: PropTypes.array.isRequired,
+  movie: PropTypes.array.isRequired,
 };
 
 export default SliderCard;

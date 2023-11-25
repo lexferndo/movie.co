@@ -2,11 +2,12 @@ import axios from "axios";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
-export const getData = async (resource, query) => {
+const apiKey = import.meta.env.VITE_API_KEY;
+
+export const getData = async (resource) => {
   try {
-    const anime = await axios.get(`${baseUrl}${resource}?${query}`);
-    return anime.data.data;
-    // console.log(anime.data.data);
+    const movie = await axios.get(`${baseUrl}${resource}?api_key=${apiKey}`);
+    return movie.data.results;
   } catch (error) {
     return error;
   }

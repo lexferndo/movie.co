@@ -3,27 +3,29 @@ import { createContext, useEffect, useState } from "react";
 import { getData } from "../utils";
 import Loading from "../components/Loading";
 
-export const AnimeContext = createContext();
+export const MovieContext = createContext();
 
 const MovieContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   // ------------
   const [playingNow, setPlayingNow] = useState([]);
   // ------------
-  const [popularAnime, setPopularAnime] = useState([]);
+  const [popularMovie, setPopularMovie] = useState([]);
   // ------------
-  const [topRatedAnime, setTopRatedAnime] = useState([]);
+  const [topRatedMovie, setTopRatedMovie] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const playing = await getData("/anime", "status=airing");
+        const playing = await getData("/now_playing");
         setPlayingNow(playing);
-        const popular = await getData("/anime", "order_by=popularity");
-        setPopularAnime(popular);
-        // const topRated = await getData("/anime", "order_by=favorites");
-        // setTopRatedAnime(topRated);
+
+        const popular = await getData("/popular");
+        setPopularMovie(popular);
+
+        const topRated = await getData("/top_rated");
+        setTopRatedMovie(topRated);
       } catch (error) {
         return alert("Error Fetching Data = ", error.message);
       } finally {
@@ -31,17 +33,19 @@ const MovieContextProvider = ({ children }) => {
       }
     };
     fetchData();
+
+    // getData2("/upcoming");
   }, []);
 
   return (
-    <AnimeContext.Provider
+    <MovieContext.Provider
       value={{
         playingNow,
-        popularAnime,
-        topRatedAnime,
+        popularMovie,
+        topRatedMovie,
       }}>
       {isLoading ? <Loading /> : children}
-    </AnimeContext.Provider>
+    </MovieContext.Provider>
   );
 };
 

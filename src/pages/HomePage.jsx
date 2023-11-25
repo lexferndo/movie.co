@@ -4,10 +4,10 @@ import SliderCard from "../components/SliderCard";
 
 import ListCard from "../components/ListCard";
 import { Link } from "react-router-dom";
-import { AnimeContext } from "../context/AnimeContext";
+import { MovieContext } from "../context/MovieContext";
 
 const HomePage = () => {
-  const { playingNow, popularAnime, topRatedAnime } = useContext(AnimeContext);
+  const { playingNow, popularMovie, topRatedMovie } = useContext(MovieContext);
 
   return (
     <div>
@@ -20,23 +20,27 @@ const HomePage = () => {
           <h1 className="flex-1 text-2xl font-medium text-primary">
             Now Playing
           </h1>
-          <Link to={"/nowp"} className="text-base font-light">
+          <Link to={"/nowplaying"} className="text-base font-light">
             More
           </Link>
         </div>
         <div>
-          <SliderCard anime={playingNow} />
+          <SliderCard movie={playingNow} />
         </div>
       </section>
 
       <section className="container mx-auto p-5">
         <h1 className="text-2xl text-primary font-medium">Popular</h1>
-        <div className="py-10">{/* <ListCard anime={popularAnime} /> */}</div>
+        <div className="py-10">
+          <ListCard movie={popularMovie} />
+        </div>
       </section>
 
       <section className="container mx-auto p-5">
-        <h1 className="text-2xl text-primary font-medium">Popular</h1>
-        <div className="py-10">{/* <ListCard anime={topRatedAnime} /> */}</div>
+        <h1 className="text-2xl text-primary font-medium">Top Rated</h1>
+        <div className="py-10">
+          <ListCard movie={topRatedMovie} />
+        </div>
       </section>
     </div>
   );
