@@ -7,13 +7,32 @@ import { Link } from "react-router-dom";
 import { MovieContext } from "../context/MovieContext";
 
 const HomePage = () => {
-  const { playingNow, popularMovie, topRatedMovie } = useContext(MovieContext);
+  const { playingNow, popularMovie, topRatedMovie, upComingMovie } =
+    useContext(MovieContext);
 
   return (
     <div>
-      <header className="bg-[url('/bg-hero.jpeg')] bg-fixed bg-cover bg-no-repeat bg-center ">
-        <Hero />
+      <header className="bg-[url('/bg-hero.jpeg')] bg-fixed bg-cover bg-no-repeat bg-center">
+        <Hero
+          title="Your No 1 Movie Platform"
+          description="Experience the immersive viewing of all time Trending Movie and catch up
+        on new series of Movie as they come to our screen. Begin your journey
+        down great movies with"
+          highlight=" Movie.co"
+        />
       </header>
+
+      <section className="container mx-auto px-5 pt-16">
+        <div className="pb-5 flex items-center">
+          <h1 className="flex-1 text-2xl font-medium text-primary">Upcoming</h1>
+          <Link to={"/upcoming"} className="text-base font-light">
+            View All
+          </Link>
+        </div>
+        <div>
+          <SliderCard movie={upComingMovie} />
+        </div>
+      </section>
 
       <section className="container mx-auto px-5 pt-16">
         <div className="pb-5 flex items-center">
@@ -29,7 +48,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="container mx-auto p-10">
+      <section className="container mx-auto p-5 sm:py-10">
         <div className="pb-5 flex items-center">
           <h1 className="flex-1 text-2xl text-primary font-medium">Popular</h1>
           <Link to={"/nowplaying"} className="text-base font-light">

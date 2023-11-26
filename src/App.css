@@ -21,3 +21,13 @@
     opacity: 0;
   }
 }
+
+.footer li {
+  padding-bottom: 5px;
+}
+
+.footer li a {
+  font-size: 16px;
+  font-weight: 300;
+  color: white;
+}

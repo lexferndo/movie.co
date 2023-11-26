@@ -20,7 +20,7 @@ const ListCard = ({ movie }) => {
   useEffect(() => {
     changeLimit();
     window.addEventListener("resize", changeLimit);
-  });
+  }, []);
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
@@ -28,9 +28,8 @@ const ListCard = ({ movie }) => {
         return (
           <Card
             key={value.id}
-            id={value.id}
             image={`${imageUrl}${value.poster_path}`}
-            title={value.title}
+            {...value}
           />
         );
       })}

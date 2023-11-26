@@ -7,34 +7,42 @@ export const MovieContext = createContext();
 
 const MovieContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
-  // ------------
+
   const [playingNow, setPlayingNow] = useState([]);
-  // ------------
+
   const [popularMovie, setPopularMovie] = useState([]);
-  // ------------
+
   const [topRatedMovie, setTopRatedMovie] = useState([]);
+
+  const [upComingMovie, setUpComingMovie] = useState([]);
+
+  const [genreMovie, setGenreMovie] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const playing = await getData("/now_playing");
-        setPlayingNow(playing);
+        const playing = await getData("/movie/now_playing");
+        setPlayingNow(playing.data.results);
 
-        const popular = await getData("/popular");
-        setPopularMovie(popular);
+        const popular = await getData("/movie/popular");
+        setPopularMovie(popular.data.results);
 
-        const topRated = await getData("/top_rated");
-        setTopRatedMovie(topRated);
+        const topRated = await getData("/movie/top_rated");
+        setTopRatedMovie(topRated.data.results);
+
+        const upcoming = await getData("/movie/upcoming");
+        setUpComingMovie(upcoming.data.results);
+
+        const genre = await getData("/genre/movie/list");
+        setGenreMovie(genre.data.genres);
       } catch (error) {
-        return alert("Error Fetching Data = ", error.message);
+        return "Error Fetching Data = ", error;
       } finally {
         setIsLoading(false);
       }
     };
     fetchData();
-
-    // getData2("/upcoming");
   }, []);
 
   return (
@@ -43,6 +51,8 @@ const MovieContextProvider = ({ children }) => {
         playingNow,
         popularMovie,
         topRatedMovie,
+        upComingMovie,
+        genreMovie,
       }}>
       {isLoading ? <Loading /> : children}
     </MovieContext.Provider>

@@ -56,11 +56,7 @@ const SliderCard = ({ movie }) => {
         {movie.map((value) => {
           return (
             <SwiperSlide key={value.id}>
-              <Card
-                id={value.id}
-                image={`${imageUrl}${value.poster_path}`}
-                title={value.title}
-              />
+              <Card image={`${imageUrl}${value.poster_path}`} {...value} />
             </SwiperSlide>
           );
         })}

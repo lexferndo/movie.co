@@ -2,10 +2,10 @@ import { useState } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 
 let Links = [
+  { name: "Upcoming", link: "#" },
   { name: "Now Playing", link: "/nowplaying" },
   { name: "Popular", link: "#" },
   { name: "Top Rated", link: "#" },
-  { name: "Upcoming", link: "#" },
 ];
 
 const Navbar = () => {
