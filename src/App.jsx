@@ -8,14 +8,14 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <main>
-        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/nowplaying" element={<NowPlayingPage />} />
         </Routes>
-        <Footer />
       </main>
+      <Footer />
     </BrowserRouter>
   );
 };

@@ -24,11 +24,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed flex w-full bg-black z-40 ${
-        navbarOpacity ? "bg-opacity-100" : "bg-opacity-50"
+      className={`fixed flex w-full p-5 bg-black z-40 ${
+        navbarOpacity ? "bg-opacity-100" : "bg-opacity-0"
       } transition-all duration-500 ease-in`}>
-      <div className="container mx-auto p-5 flex items-center sm:gap-x-[11vw] sm:px-0 lg:px-5">
-        <a href="/" className="text-2xl font-medium text-primary flex-1 ">
+      <div className="container mx-auto flex items-center justify-between ">
+        <a href="/" className="text-2xl font-medium text-primary">
           Movie.co
         </a>
         <button
@@ -38,12 +38,12 @@ const Navbar = () => {
         </button>
 
         <div
-          className={`absolute grid left-0 bg-black w-full top-16 justify-items-center text-center items-center py-10 gap-y-10 uppercase transition-all duration-500 ease-in ${
+          className={`absolute flex flex-col left-0 bg-black w-full top-16 text-center items-center px-5 py-10 gap-y-10 uppercase transition-all duration-500 ease-in ${
             navbarOpen ? "top-[70px]" : "top-[-600px]"
           } ${
             navbarOpacity ? "bg-opacity-100" : "bg-opacity-50"
-          } sm:relative sm:gap-x-5 sm:bg-transparent sm:flex sm:py-0 sm:top-0`}>
-          <ul className="text-white text-xl font-normal grid gap-y-5 sm:flex sm:flex-1 sm:text-base sm:justify-center sm:gap-x-5 lg:gap-x-10 sm:capitalize">
+          } sm:top-0 sm:flex-row sm:static sm:py-0 sm:pl-10 sm:justify-between sm:bg-transparent`}>
+          <ul className="text-white text-xl font-normal grid gap-y-5 sm:flex sm:text-base sm:justify-center sm:gap-x-5 lg:gap-x-10 sm:capitalize ">
             {Links.map((value, index) => {
               return (
                 <li key={index}>
@@ -56,7 +56,7 @@ const Navbar = () => {
               );
             })}
           </ul>
-          <div className="w-full px-10 grid sm:px-0 sm:w-fit">
+          <div className="w-full grid sm:w-auto ">
             <input
               type="text"
               placeholder="Search"

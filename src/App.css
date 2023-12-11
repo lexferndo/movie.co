@@ -31,3 +31,7 @@
   font-weight: 300;
   color: white;
 }
+
+.footer li a:hover {
+  font-weight: 400;
+}

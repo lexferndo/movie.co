@@ -1,12 +1,10 @@
-import { useContext, useState } from "react";
-import { MovieContext } from "../context/MovieContext";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 import { IoMdArrowDropup } from "react-icons/io";
 import { IoMdArrowDropdown } from "react-icons/io";
 
-const ButtonFilter = () => {
-  const { genreMovie } = useContext(MovieContext);
-
+const ButtonFilter = ({ genreMovie }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleClick = () => {
@@ -49,6 +47,10 @@ const ButtonFilter = () => {
       </div>
     </div>
   );
+};
+
+ButtonFilter.propTypes = {
+  genreMovie: PropTypes.array.isRequired,
 };
 
 export default ButtonFilter;
