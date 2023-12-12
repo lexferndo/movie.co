@@ -2,10 +2,10 @@ import { useState } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 
 let Links = [
-  { name: "Upcoming", link: "#" },
+  { name: "Upcoming", link: "/upcoming" },
   { name: "Now Playing", link: "/nowplaying" },
-  { name: "Popular", link: "#" },
-  { name: "Top Rated", link: "#" },
+  { name: "Popular", link: "/popular" },
+  { name: "Top Rated", link: "/toprated" },
 ];
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
   const [navbarOpacity, setNavbarOpacity] = useState(false);
 
   const changeOpacityBackground = () => {
-    if (window.scrollY >= 63) {
+    if (window.scrollY >= 40) {
       setNavbarOpacity(true);
     } else {
       setNavbarOpacity(false);
@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed flex w-full p-5 bg-black z-40 ${
+      className={`fixed flex w-full p-5 bg-black z-20 ${
         navbarOpacity ? "bg-opacity-100" : "bg-opacity-0"
       } transition-all duration-500 ease-in`}>
       <div className="container mx-auto flex items-center justify-between ">

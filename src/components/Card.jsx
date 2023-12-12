@@ -4,20 +4,20 @@ import Rating from "./Rating";
 
 const Card = ({ id, image, title, vote_average }) => {
   return (
-    <div className="grid justify-center items-start gap-y-1 px-2 cursor-pointer hover:scale-105 transition-all duration-700">
-      <div className="relative">
-        <img src={image} alt="cardimage" />
-        <div className="absolute -bottom-3 left-2">
-          <Rating id={id} rating={vote_average} />
+    <Link to={`/detail/${id}`}>
+      <div className="grid justify-center items-start gap-y-1 px-2 hover:scale-105 transition-all duration-700">
+        <div className="relative">
+          <img src={image} alt="cardimage" />
+          <div className="absolute -bottom-3 left-2">
+            <Rating id={id} rating={vote_average} />
+          </div>
+        </div>
+
+        <div className="py-5 text-center text-lg font-normal">
+          <p className="text-center text-lg font-normal">{title}</p>
         </div>
       </div>
-
-      <div className="py-5 text-center">
-        <Link to={`/detail/${id}`} className="text-lg font-normal">
-          {title}
-        </Link>
-      </div>
-    </div>
+    </Link>
   );
 };
 

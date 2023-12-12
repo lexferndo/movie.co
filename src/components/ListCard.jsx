@@ -28,7 +28,11 @@ const ListCard = ({ movie }) => {
         return (
           <Card
             key={value.id}
-            image={`${imageUrl}${value.poster_path}`}
+            image={
+              value.poster_path === null
+                ? "/not-poster.jpeg"
+                : `${imageUrl}${value.poster_path}`
+            }
             {...value}
           />
         );

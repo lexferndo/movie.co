@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const Rating = ({ id, rating }) => {
   function formatRating(rate) {
-    const result = rate.toFixed(1);
+    const result = rate?.toFixed(1);
 
     return parseFloat(result);
   }
@@ -12,9 +12,9 @@ const Rating = ({ id, rating }) => {
     const rate = document.getElementById(`rating_${id}`);
     if (rate) {
       rate.style.background = `conic-gradient(${
-        formatRating(rating) * 10 > 70 ? "#4BF000" : "#F0A500"
+        formatRating(rating) * 10 > 75 ? "#4BF000" : "#F0A500"
       } ${formatRating(rating) * 10 * 3.6}deg, ${
-        formatRating(rating) * 10 > 70 ? "#b7f999" : "#f9db99"
+        formatRating(rating) * 10 > 75 ? "#b7f999" : "#f9db99"
       } ${formatRating(rating) * 10 * 3.6}deg)`;
     }
   }, [id, rating]);
@@ -33,10 +33,8 @@ const Rating = ({ id, rating }) => {
 };
 
 Rating.propTypes = {
-  id: PropTypes.number.isRequired,
-  rating: PropTypes.number.isRequired,
+  id: PropTypes.number,
+  rating: PropTypes.number,
 };
 
 export default Rating;
-
-// #4BF000 #b7f999

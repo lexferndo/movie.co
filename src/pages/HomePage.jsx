@@ -40,7 +40,7 @@ const HomePage = () => {
         <>
           <header className="bg-[url('/bg-hero.jpeg')] bg-fixed bg-cover bg-no-repeat bg-center">
             <Hero
-              title="Your No 1 Movie Platform"
+              title="Your Movie Platform"
               description="Experience the immersive viewing of all time Trending Movie and catch up
         on new series of Movie as they come to our screen. Begin your journey
         down great movies with"
@@ -50,7 +50,7 @@ const HomePage = () => {
 
           <section className="container mx-auto p-5 sm:pt-10">
             <div className="pb-5 flex items-center">
-              <h1 className="flex-1 text-2xl font-medium text-primary">
+              <h1 className="flex-1 text-2xl font-medium text-primary cursor-default">
                 Now Playing
               </h1>
               <Link to={"/nowplaying"} className="text-base font-light">
@@ -64,10 +64,10 @@ const HomePage = () => {
 
           <section className="container mx-auto p-5">
             <div className="pb-5 flex items-center">
-              <h1 className="flex-1 text-2xl text-primary font-medium">
+              <h1 className="flex-1 text-2xl text-primary font-medium cursor-default">
                 Top Rated
               </h1>
-              <Link to={"/nowplaying"} className="text-base font-light">
+              <Link to={"/toprated"} className="text-base font-light">
                 View All
               </Link>
             </div>

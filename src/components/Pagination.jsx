@@ -8,7 +8,7 @@ const Pagination = () => {
         <IoMdArrowDropleft className="text-2xl" />
         Prev
       </button>
-      <h1 className="font-medium text-primary">1 Of 1000</h1>
+      <h1 className="font-medium text-primary">1 - 1000</h1>
       <button className="flex items-center font-light">
         Next <IoMdArrowDropright className="text-2xl" />
       </button>

@@ -19,16 +19,16 @@ const Footer = () => {
           <ul className="grid gap-y-2 sm:justify-center">
             <li className="text-2xl font medium text-white">Categories</li>
             <li>
-              <Link>Now Playing</Link>
+              <Link to={"/upcoming"}>Upcoming</Link>
             </li>
             <li>
-              <Link>Popular</Link>
+              <Link to={"/nowplaying"}>Now Playing</Link>
             </li>
             <li>
-              <Link>Top Rated</Link>
+              <Link to={"/popular"}>Popular</Link>
             </li>
             <li>
-              <Link>Upcoming</Link>
+              <Link to={"/toprated"}>Top Rated</Link>
             </li>
           </ul>
         </div>
