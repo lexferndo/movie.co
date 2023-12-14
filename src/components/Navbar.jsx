@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 import { RiSearchLine } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 let Links = [
   { name: "Upcoming", link: "/upcoming" },
@@ -63,11 +63,11 @@ const Navbar = () => {
             {Links.map((value, index) => {
               return (
                 <li key={index}>
-                  <a
-                    className="transition-all duration-100 ease-in hover:font-bold"
-                    href={value.link}>
+                  <Link
+                    to={value.link}
+                    className="transition-all duration-100 ease-in hover:font-bold">
                     {value.name}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
