@@ -9,6 +9,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import UpComing from "./pages/UpComing";
 import Popular from "./pages/Popular";
 import TopRated from "./pages/TopRated";
+import SearchPage from "./pages/SearchPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/popular" element={<Popular />} />
           <Route path="/toprated" element={<TopRated />} />
           <Route path="/detail/:id" element={<DetailPage />} />
+          <Route path="/search/:keyword" element={<SearchPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />

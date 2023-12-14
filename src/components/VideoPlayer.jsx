@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 
 const VideoPlayer = ({ open, youtubeId, handleClick }) => {
   const [opts, setOpts] = useState({
-    height: "200",
-    width: "370",
+    height: "0",
+    width: "0",
   });
 
   useEffect(() => {

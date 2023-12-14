@@ -37,13 +37,13 @@ const Footer = () => {
           <ul className="grid gap-y-2 sm:justify-center">
             <li className="text-2xl font-medium text-white">About Us</li>
             <li>
-              <Link>FAQ</Link>
+              <Link to={"/faq"}>FAQ</Link>
             </li>
             <li>
-              <Link>Privacy Policy</Link>
+              <Link to={"/privacypolicy"}>Privacy Policy</Link>
             </li>
             <li>
-              <Link>Terms and Conditions</Link>
+              <Link to={"/terms"}>Terms and Conditions</Link>
             </li>
           </ul>
         </div>

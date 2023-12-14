@@ -3,13 +3,13 @@ import Hero from "../components/Hero";
 import Card from "../components/Card";
 import { getData } from "../utils";
 import Loading from "../components/Loading";
+import Pagination from "../components/Pagination";
 
 const imageUrl = import.meta.env.VITE_API_IMAGEURL;
 
 const Popular = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [popular, setPopular] = useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -53,6 +53,11 @@ const Popular = () => {
                 );
               })}
             </div>
+            <Pagination
+              currentPage={currentPage}
+              lastPage={popular?.total_pages}
+              setCurrentPage={setCurrentPage}
+            />
           </section>
         </>
       )}
