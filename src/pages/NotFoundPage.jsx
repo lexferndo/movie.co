@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
-    <section className="absolute flex place-content-center top-0 bottom-0 w-screen bg-white z-50">
+    <section className="fixed flex place-content-center top-0 bottom-0 bg-white z-50">
       <div className="grid container mx-auto p-5 gap-5 place-content-center place-items-center ">
         <div className="grid">
           <h1 className="text-2xl text-primary text-center font-bold">
